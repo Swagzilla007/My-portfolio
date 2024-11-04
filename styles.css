@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    a[href^="https"] {
+        color: navy;/* Set color for external links */
+
+    }
+}
+html{
+    scroll-behavior: smooth;/* Smooth scrolling */
+}
+
+/*Navbar*/
+.navbar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color: black;
+    position:sticky;/* Fixed at top when scrolling */
+    top:0;
+    z-index: 1000;
+
+}
+
+.navbar ul{
+    display:flex;
+    list-style: none;
+    margin:20px 0px;
+
+}
+.navbar ul li{
+    font-family: century;
+    font-size: 1.1rem;
+    font-weight: bold;
+    }
+
+ .navbar ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1.5625rem;
+    transition: all .5s ease;/* Smooth transition */
+
+ }   
+ .navbar ul li a:hover{
+background-color: white;
+color: black;
+box-shadow: 0 0 0.625rem white;
+
+}
+/*home*/
+
+#home{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 120px;
+    justify-content: center;
+    align-items: center; 
+    
+}
+#home::before{
+    content:"";
+    position: absolute;
+    top:0;
+    right:0;
+    height: 900px;
+    width: 100%;
+    z-index: -1;
+    opacity: .8;
+
+
+}
+.main{
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    right: 10%;
+}
+.headings{
+    font-size: 3rem;
+    text-align: center;
+    margin: 40px 0px;
+}
+.headingshome span {
+             
+    transition: color 0.2s; 
+    cursor: pointer;       
+  }
+  
+  .headingshome span:hover {
+    color: yellow;         /* Highlight effect when hovering over */
+  }
+
+  .headingshome{
+    font-size: 3rem;
+    text-align: center;
+    margin: 40px 0px;
+    animation: slideInFromRight 1s ease-out; 
+    opacity: 1;
+  }
+  #avatar img {
+
+    max-width: 400px;
+    height: auto;
+    animation: pulseEffect 1.5s ease-in-out infinite;
+  }
+
+  @keyframes slideInFromRight {   /*added an animation to i am gayathra chanith part,the text slides in from the right side*/
+    0% {
+        transform: translateX(100%); 
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+
+  
+
+/*about*/
+
+#about{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+#about>h1{
+    margin-left: 30px;
+}
+#pic{
+    display: flex;
+    
+}
+#pic img{
+    width: 575px;
+    height: 400px;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+   
+    
+}
+
+#pic img:hover{
+    transform: scale(1.02);
+
+
+}
+#intro{
+  display: flex;
+  flex-direction: column;
+  text-align: justify;  
+  padding: 10px;
+}
+#intro h2{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#intro p{
+
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 10px;
+   
+}
+#intro p:nth-child(2) {
+    font-weight: bold; }/*make the first p bold*/
+
+ #intro p:not(:first-child) {
+    margin-top: 20px; 
+    
+}
+
+#about a:not(.underline-link) {
+    
+    text-decoration: none; }/*made download cv link without an underline*/
+
+
+.about-container{
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.315);
+}
+
+
+
+/*projects*/
+
+
+
+.Projects h2{
+    margin-bottom: 5rem;
+    font-size:3rem ;
+}
+
+
+
+
+.Projects-container{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.Projects-container .Projects-box{
+    position: relative;
+    flex: 1 1 300px;
+    padding: 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: .2rem solid;
+    transition: .5s ease;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    color: #f0f0f0;
+}
+
+.Projects-container .Projects-box:hover{
+    
+    transform: scale(1.02);/* Slight zoom on hover */
+
+}
+
+.Projects-box i{
+    font-size: 7rem;
+    
+}
+
+.Projects-box h3{
+    font-size: 2.6rem;
+}
+
+.Projects-box p {
+    font-size: 1.5rem;
+    margin: 1rem 0 3rem;
+}
+
+.Projects-box img {
+    width: 70%; 
+    max-width: 18rem; 
+    border-radius: 0.5rem; 
+    margin-bottom: 1rem;
+    z-index: 1; 
+    position: relative; 
+}
+@keyframes gradient-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.Projects-box::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(270deg, #211951, #0a0a0a, rgb(87, 30, 30)); 
+    background-size: 400% 400%; 
+    border-radius: 10px; 
+    z-index: -1; 
+    clip-path: inset(0px); 
+    animation: gradient-border 3s linear infinite;
+}
+
+
+
+
+
+
+
+/*contact*/
+#contact{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    margin: 20px 0px;
+}
+.input1{
+  padding:12px;
+  margin:15px;
+  width:30%;
+  border-radius: 10px;
+  outline: none;
+  position: relative;
+
+}
+.input1:invalid {
+    border: 2px solid red; 
+}
+
+.form .input1:nth-child(1) {
+    background-color: #cecfd0;}/*nth child for 1st field*/
+
+.input2{
+  padding:12px;
+  position: relative;
+  margin:15px;
+  width:30%;
+  border-radius: 10px;
+  outline: none;
+  input[type="email"] {
+    background-color: #f0f0f0;
+}
+}
+
+.input2:invalid {
+    border: 2px solid red; 
+}
+#message{
+    width: 20%;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 10px;
+    outline: none;
+    position: relative;
+
+}
+
+
+
+
+.send{
+    padding: 10px;
+    width:10%;
+    margin: 40px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    animation: pulseEffect 1.5s ease-in-out infinite;
+
+
+   
+}
+.send:hover{
+    cursor: pointer;
+    box-shadow:none;
+    background: linear-gradient(to bottom, rgba(249, 246, 246, 0.8), rgba(0, 0, 255, 0));
+    color: white;
+}
+
+.send:hover::after {
+    transform: scale(1.1); 
+    
+}
+
+@keyframes pulseEffect {
+    0% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.05); 
+    }
+    100% {
+      transform: scale(1); 
+    }
+  }
+
+
+
+  
+/* footer */
+footer {
+    background-color: #333;      
+    color: #fff;                 
+    text-align: center;          
+    padding: 15px 0;             
+    font-size: 0.9rem;           
+    position: relative;          
+    bottom: 0;
+    width: 100%;               
+}
+
+footer p {
+    margin: 0;                  
+}
+
+/*social media icons */
+.social-icons {
+    list-style-type: none;           
+    padding: 0;                      
+    display: flex;                  
+    gap: 15px;                      
+    justify-content: center;         
+    margin-top: 20px;
+}
+
+.social-icons li {
+    display: inline;
+}
+
+.social-icons a {
+    text-decoration: none;           
+    color: #333;                    
+    font-size: 1.5em;               
+    transition: color 0.3s ease;     
+}
+
+.social-icons a:hover {
+    color:rgba(0, 0, 255, 0.5);
+
+}
+
+/*responsive css*/
+
+@media (max-width: 600px) { /*small screens*/
+    .navbar ul {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .navbar ul li {
+        margin: 5px 0; /* Add some space between items */
+    }
+
+    #pic {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center content */
+    }
+
+    #pic img {
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    #about p {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+
+    
+    }
+
+    .input1, .input2, #message, .send {
+        width: 90%; /* Make inputs and button wider */
+    }
+
+
+@media (min-width: 601px) and (max-width: 900px) { /*medium screens*/
+    .navbar ul li {
+        font-size: 1.2rem; /* Adjust font size for medium screens */
+    }
+
+    .Projects-container .Projects-box {
+        flex: 1 1 45%; /* Two boxes in a row */
+    }
+}
+
+@media (min-width: 901px) {
+    /* Keep the styles for larger screens as they are */
+    .Projects-container .Projects-box {
+        flex: 1 1 30%; /* Three boxes in a row */
+    }
+}
+
+@media (min-width: 768px) {
+    .Projects-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .Projects-box {
+        flex: 1 1 45%;
+        max-width: 400px;
+    }
+
+    .send {
+        width: 20%;
+    }
+}
+
