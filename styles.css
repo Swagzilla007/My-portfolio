@@ -1,16 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* Page Transition Styles */
+body {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-out;
+    min-height: 100vh;
+}
 
+body.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+body.fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+}
 
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    a[href^="https"] {
+        color: navy;/* Set color for external links */
+
+    }
 }
 html{
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;/* Smooth scrolling */
 }
 
 /*Navbar*/
@@ -19,8 +39,9 @@ html{
     justify-content:center;
     align-items:center;
     background-color: black;
-    position:sticky;
+    position:sticky;/* Fixed at top when scrolling */
     top:0;
+    z-index: 1000;
 
 }
 
@@ -39,14 +60,14 @@ html{
  .navbar ul li a{
     text-decoration: none;
     color: white;
-    padding: 8px 25px;
-    transition: all .5s ease;
+    padding: 0.5rem 1.5625rem;
+    transition: all .5s ease;/* Smooth transition */
 
  }   
  .navbar ul li a:hover{
 background-color: white;
 color: black;
-box-shadow: 0 0 10px white;
+box-shadow: 0 0 0.625rem white;
 
 }
 /*home*/
@@ -92,7 +113,7 @@ box-shadow: 0 0 10px white;
   }
   
   .headingshome span:hover {
-    color: yellow;         
+    color: yellow;         /* Highlight effect when hovering over */
   }
 
   .headingshome{
@@ -104,12 +125,18 @@ box-shadow: 0 0 10px white;
   }
   #avatar img {
 
-    width: 400px;
+    max-width: 400px;
     height: auto;
     animation: pulseEffect 1.5s ease-in-out infinite;
   }
 
-  @keyframes slideInFromRight {
+#avatar {
+    display: flex;
+    
+    margin-top: 30px; /* Just a tiny bit of spacing from the top */
+}
+
+  @keyframes slideInFromRight {   /*added an animation to i am gayathra chanith part,the text slides in from the right side*/
     0% {
         transform: translateX(100%); 
         opacity: 0;
@@ -132,12 +159,27 @@ box-shadow: 0 0 10px white;
     padding: 20px;
     margin-bottom: 50px;
 }
+
+#about>h1{
+    margin-left: 30px;
+}
 #pic{
     display: flex;
+    
 }
 #pic img{
     width: 575px;
     height: 400px;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+   
+    
+}
+
+#pic img:hover{
+    transform: scale(1.02);
+
+
 }
 #intro{
   display: flex;
@@ -156,50 +198,277 @@ box-shadow: 0 0 10px white;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin: 10px;
    
+}
+#intro p:nth-child(2) {
+    font-weight: bold; }/*make the first p bold*/
 
+ #intro p:not(:first-child) {
+    margin-top: 20px; 
+    
 }
 
-#abread{
-    background: linear-gradient(to bottom,#4facfe05, #f0f4f4);
+#about a:not(.underline-link) {
+    
+    text-decoration: none; }/*made download cv link without an underline*/
+
+
+.about-container{
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.315);
 }
 
+/* Updated About Section Styles */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    padding: 2rem;
+}
 
+.profile-image {
+    text-align: center;
+}
+
+.profile-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-content {
+    padding: 1rem;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.about-tags {
+    margin-bottom: 2rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.about-text .intro {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #222;
+}
+
+.about-cta {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+    background-color: #333;
+    color: white;
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: #333;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design for about section */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-image {
+        margin-bottom: 2rem;
+    }
+
+    /* Home page responsive styles */
+    #home {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .main {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    #avatar {
+        justify-content: center;
+        margin-top: 60px;
+    }
+
+    #avatar img {
+        max-width: 300px;
+    }
+
+    .headingshome {
+        font-size: 2rem;
+        margin: 20px 0;
+    }
+}
 
 /*projects*/
 
-#projects {
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    color: white;
-    align-items: center;
-    padding: 20px;
-    max-width: 1100px; 
-    margin: 0 auto; 
+
+
+.Projects h2{
+    margin-bottom: 5rem;
+    font-size:3rem ;
 }
 
-.gallery {
+
+
+
+.Projects-container{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; 
-    width: 100%; 
-    box-sizing: border-box;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.gallery img {
-    width: 100%; 
-    max-width: 360px; 
-    height: auto; 
-    margin: 10px 0; 
-    object-fit: cover; 
+.Projects-container .Projects-box{
+    position: relative;
+    flex: 1 1 250px; /* Reduced from 300px */
+    max-width: 280px; /* Added max-width constraint */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    border: 1px solid;
+    transition: .3s ease;
+    overflow: hidden;
+    background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+    margin: 0 auto;
 }
 
+.Projects-container .Projects-box:hover{
+    
+    transform: scale(1.02);/* Slight zoom on hover */
 
+}
 
+.Projects-box h3{
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff; /* Add white color */
+}
 
+.Projects-box p {
+    font-size: 1rem;
+    margin: 0.5rem 0 1.5rem;
+    color: #ffffff; /* Add white color */
+}
 
+.Projects-box img {
+    width: 100%;
+    height: 140px; /* Reduced height */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff; /* Updated to ensure white text */
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.Projects-box .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important; /* Added !important to force white color */
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+@keyframes gradient-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.Projects-box::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(270deg, #211951, #0a0a0a, rgb(87, 30, 30)); 
+    background-size: 400% 400%; 
+    border-radius: 10px; 
+    z-index: -1; 
+    clip-path: inset(0px); 
+    animation: gradient-border 3s linear infinite;
+}
+
+/* Update responsive design for projects */
+@media (max-width: 768px) {
+    .Projects-container .Projects-box {
+        flex: 1 1 200px;
+        max-width: 240px;
+    }
+}
 
 /*contact*/
 #contact{
@@ -217,13 +486,36 @@ box-shadow: 0 0 10px white;
     align-items: center;
     margin: 20px 0px;
 }
-.input{
+.input1{
   padding:12px;
   margin:15px;
   width:30%;
   border-radius: 10px;
   outline: none;
+  position: relative;
 
+}
+.input1:invalid {
+    border: 2px solid red; 
+}
+
+.form .input1:nth-child(1) {
+    background-color: #cecfd0;}/*nth child for 1st field*/
+
+.input2{
+  padding:12px;
+  position: relative;
+  margin:15px;
+  width:30%;
+  border-radius: 10px;
+  outline: none;
+  input[type="email"] {
+    background-color: #f0f0f0;
+}
+}
+
+.input2:invalid {
+    border: 2px solid red; 
 }
 #message{
     width: 20%;
@@ -231,8 +523,12 @@ box-shadow: 0 0 10px white;
     margin: 15px;
     border-radius: 10px;
     outline: none;
+    position: relative;
 
 }
+
+
+
 
 .send{
     padding: 10px;
@@ -242,21 +538,31 @@ box-shadow: 0 0 10px white;
     outline: none;
     font-size: 1em;
     animation: pulseEffect 1.5s ease-in-out infinite;
+
+
+   
 }
 .send:hover{
     cursor: pointer;
-    box-shadow: 0 0 10px white;
+    box-shadow:none;
+    background: linear-gradient(to bottom, rgba(249, 246, 246, 0.8), rgba(0, 0, 255, 0));
+    color: white;
+}
+
+.send:hover::after {
+    transform: scale(1.1); 
+    
 }
 
 @keyframes pulseEffect {
     0% {
-      transform: scale(1); /* Start at normal size */
+      transform: scale(1); 
     }
     50% {
-      transform: scale(1.05); /* Scale up slightly */
+      transform: scale(1.05); 
     }
     100% {
-      transform: scale(1); /* Return to normal size */
+      transform: scale(1); 
     }
   }
 
@@ -305,5 +611,70 @@ footer p {
 
 }
 
+/*responsive css*/
 
+@media (max-width: 600px) { /*small screens*/
+    .navbar ul {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .navbar ul li {
+        margin: 5px 0; /* Add some space between items */
+    }
+
+    #pic {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center content */
+    }
+
+    #pic img {
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    #about p {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+
+    
+    }
+
+    .input1, .input2, #message, .send {
+        width: 90%; /* Make inputs and button wider */
+    }
+
+
+@media (min-width: 601px) and (max-width: 900px) { /*medium screens*/
+    .navbar ul li {
+        font-size: 1.2rem; /* Adjust font size for medium screens */
+    }
+
+    .Projects-container .Projects-box {
+        flex: 1 1 45%; /* Two boxes in a row */
+    }
+}
+
+@media (min-width: 901px) {
+    /* Keep the styles for larger screens as they are */
+    .Projects-container .Projects-box {
+        flex: 1 1 30%; /* Three boxes in a row */
+    }
+}
+
+@media (min-width: 768px) {
+    .Projects-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .Projects-box {
+        flex: 1 1 45%;
+        max-width: 400px;
+    }
+
+    .send {
+        width: 20%;
+    }
+}
 
